@@ -2,6 +2,7 @@ package com.example.Ejercicio456.controller;
 
 import com.example.Ejercicio456.entities.Laptop;
 import com.example.Ejercicio456.repository.LaptopRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +14,16 @@ public class LaptopController {
 
     private LaptopRepository laptopRepository;
 
+    @Value("${app.message}")
+    String message;
+
     public LaptopController(LaptopRepository laptopRepository) {
         this.laptopRepository = laptopRepository;
     }
 
     @GetMapping("/api/laptop")
     public List<Laptop> getLaptop() {
+        System.out.println(message);
         return laptopRepository.findAll();
     }
 

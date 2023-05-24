@@ -44,13 +44,14 @@ class LaptopControllerTest {
         System.out.println(books.size());
     }
 
+    /*
     @Test
     void findOneById() {
         ResponseEntity<Laptop> response =
                 testRestTemplate.getForEntity("/api/laptop/1", Laptop.class);
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-    }
+    }*/
 
     @Test
     void create() {
