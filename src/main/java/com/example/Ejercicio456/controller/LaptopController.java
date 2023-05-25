@@ -4,8 +4,8 @@ import com.example.Ejercicio456.entities.Laptop;
 import com.example.Ejercicio456.repository.LaptopRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +22,7 @@ public class LaptopController {
     }
 
     @GetMapping("/api/laptop")
+    @PreAuthorize("hasRole('USER')")
     public List<Laptop> getLaptop() {
         System.out.println(message);
         return laptopRepository.findAll();
@@ -39,6 +40,7 @@ public class LaptopController {
     }
 
     @PostMapping("/api/laptop")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Laptop> create(@RequestBody Laptop laptop) {
         if (laptop.getId() != null) {
             return ResponseEntity.badRequest().build();
