@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "79150302-21bc-4c56-945c-11d7db545721",
+		"name": "Api Rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9136611"
+	},
+	"item": [
+		{
+			"name": "/api/auth/login LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"demo\",\n    \"password\": \"demop\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/auth/register REGISTRAR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"demo\",\n    \"email\": \"demo@gmail.com\",\n    \"password\": \"demop\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/laptops LISTAR TODO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiaWF0IjoxNjg1MTM4MjI1LCJleHAiOjE2ODUyMjQ2MjV9.lohEfY1E3eLDvxxP3UPdaDVl34DV1lSFMQn_RMS7s1wNZmLhjTXWvA5LMVevWKadpcWYpoeVPVguKZpgX9rAZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/laptops/id LISTAR POR ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiaWF0IjoxNjg1MTM4MjI1LCJleHAiOjE2ODUyMjQ2MjV9.lohEfY1E3eLDvxxP3UPdaDVl34DV1lSFMQn_RMS7s1wNZmLhjTXWvA5LMVevWKadpcWYpoeVPVguKZpgX9rAZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptops/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/laptops CREAR",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiaWF0IjoxNjg1MTM4MjI1LCJleHAiOjE2ODUyMjQ2MjV9.lohEfY1E3eLDvxxP3UPdaDVl34DV1lSFMQn_RMS7s1wNZmLhjTXWvA5LMVevWKadpcWYpoeVPVguKZpgX9rAZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"HP\",\n    \"modelo\": \"model\",\n    \"precio\":2.23,\n    \"color\": \"negro\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/laptops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/laptops ACTUALIZAR",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiaWF0IjoxNjg1MTM4MjI1LCJleHAiOjE2ODUyMjQ2MjV9.lohEfY1E3eLDvxxP3UPdaDVl34DV1lSFMQn_RMS7s1wNZmLhjTXWvA5LMVevWKadpcWYpoeVPVguKZpgX9rAZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"marca\": \"HP\",\n    \"modelo\": \"xlsaa\",\n    \"precio\":2.23,\n    \"color\": \"negro\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/laptops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/laptops ELIMINAR TODO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiaWF0IjoxNjg1MTM4MjI1LCJleHAiOjE2ODUyMjQ2MjV9.lohEfY1E3eLDvxxP3UPdaDVl34DV1lSFMQn_RMS7s1wNZmLhjTXWvA5LMVevWKadpcWYpoeVPVguKZpgX9rAZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/laptops/id ELIMINAR POR ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiaWF0IjoxNjg1MTM4MjI1LCJleHAiOjE2ODUyMjQ2MjV9.lohEfY1E3eLDvxxP3UPdaDVl34DV1lSFMQn_RMS7s1wNZmLhjTXWvA5LMVevWKadpcWYpoeVPVguKZpgX9rAZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptops/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,6 +1,6 @@
-package com.example.Ejercicio456.controller;
+package com.example.Ejercicio456.rest;
 
-import com.example.Ejercicio456.entities.Laptop;
+import com.example.Ejercicio456.domain.Laptop;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

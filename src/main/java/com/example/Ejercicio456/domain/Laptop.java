@@ -1,4 +1,4 @@
-package com.example.Ejercicio456.entities;
+package com.example.Ejercicio456.domain;
 
 import javax.persistence.*;
 
