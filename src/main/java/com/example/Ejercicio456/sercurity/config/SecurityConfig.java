@@ -2,10 +2,11 @@ package com.example.Ejercicio456.sercurity.config;
 
 import com.example.Ejercicio456.sercurity.jwt.JwtAuthEntryPoint;
 import com.example.Ejercicio456.sercurity.jwt.JwtRequestFilter;
-import com.example.Ejercicio456.sercurity.service.UserDetailsServiceImpl;
+import com.example.Ejercicio456.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,10 +30,10 @@ import java.util.List;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    private UserServiceImpl userDetailsService;
 
     @Autowired
-    private JwtAuthEntryPoint unauthorizedHandler;
+    private JwtAuthEntryPoint unauthorizedEntryPoint;
 
     // ================ CREACIÓN DE BEANS ======================
     @Bean
@@ -55,8 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * Configuracion global de CORS para toda la aplicacion
      */
     @Bean
-    CorsConfigurationSource corsConfigurationSource()
-    {
+    CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // configuration.setAllowedOrigins(List.of("http://localhost:4200", "https://angular-springboot-*.vercel.app"));
         // configuration.setAllowedOriginPatterns(List.of("http://localhost:4200", "https://angular-springboot1-beta.vercel.app"));
@@ -78,18 +78,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // Cross-Site Request Forgery CSRF
         // CORS (Cross-origin resource sharing)
-        http
-                .cors().and()
-                .csrf().disable()
+        http.cors().and().csrf().disable()
                 .headers().frameOptions().disable().and() // Permitir la visualización de contenido enmarcado (como iframes) desde orígenes externos.
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .authorizeRequests()
+                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/laptops").hasRole("ADMIN")
                 .antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/api/users").permitAll()
                 .antMatchers("/").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated().and()
+                .exceptionHandling()
+                .authenticationEntryPoint(unauthorizedEntryPoint).and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }

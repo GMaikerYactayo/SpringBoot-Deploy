@@ -5,6 +5,7 @@ import com.example.Ejercicio456.domain.Laptop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class LaptopController {
     }
 
     @GetMapping("/laptops/{id}")
-    public ResponseEntity<Laptop> findByIdResponse(@PathVariable Long id) {
+    public ResponseEntity<Laptop> findById(@PathVariable Long id) {
         log.info("REST request to find one laptop");
         Optional<Laptop> laptopOPT = this.laptopService.findById(id);
         if (laptopOPT.isPresent()) {

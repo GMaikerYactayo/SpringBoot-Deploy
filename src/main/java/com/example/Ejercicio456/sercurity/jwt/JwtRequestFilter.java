@@ -1,6 +1,6 @@
 package com.example.Ejercicio456.sercurity.jwt;
 
-import com.example.Ejercicio456.sercurity.service.UserDetailsServiceImpl;
+import com.example.Ejercicio456.Service.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    private UserServiceImpl userDetailsService;
 
     /**
      * Same contract as for {@code doFilter}, but guaranteed to be
