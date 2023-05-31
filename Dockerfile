@@ -1,5 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY target/SprinBoot-Deploy-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM amazoncorretto:17-alpine-jdk
+MAINTAINER MGY
+COPY SprinBoot-Deploy-0.0.1-SNAPSHOT.jar  myapp.jar
+ENTRYPOINT ["java","-jar","/myapp.jar"]
