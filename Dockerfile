@@ -18,6 +18,6 @@ ENV JAVA_HOME=/opt/java-minimal
 ENV PATH="$PATH:$JAVA_HOME/bin"
 
 COPY --from=packager "$JAVA_HOME" "$JAVA_HOME"
-ADD SprinBoot-Deploy-0.0.1-SNAPSHOT.jar SprinBoot-Deploy-0.0.1-SNAPSHOT.jar
+ADD target/SprinBoot-Deploy-0.0.1-SNAPSHOT.jar SprinBoot-Deploy-0.0.1-SNAPSHOT.jar
 
 CMD ["java","-jar","SprinBoot-Deploy-0.0.1-SNAPSHOT.jar"]
