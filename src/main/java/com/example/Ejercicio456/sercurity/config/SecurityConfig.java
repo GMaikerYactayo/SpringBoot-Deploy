@@ -79,12 +79,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Cross-Site Request Forgery CSRF
         // CORS (Cross-origin resource sharing)
         http.cors().and().csrf().disable()
-                .headers().frameOptions().disable().and() // Permitir la visualización de contenido enmarcado (como iframes) desde orígenes externos.
+                //.headers().frameOptions().disable().and() // Permitir la visualización de contenido enmarcado (como iframes) desde orígenes externos.
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/laptops").hasRole("ADMIN")
-                .antMatchers("/h2-console/**").permitAll()
+                //.antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling()
